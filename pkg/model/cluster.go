@@ -50,14 +50,12 @@ var (
 type (
 	// Cluster a single upstream cluster
 	Cluster struct {
-		Name                 string           `yaml:"name" json:"name"` // Name the cluster unique name
-		TypeStr              string           `yaml:"type" json:"type"` // Type the cluster discovery type string value
-		Type                 DiscoveryType    `yaml:"-" json:"-"`       // Type the cluster discovery type
-		EdsClusterConfig     EdsClusterConfig `yaml:"eds_cluster_config" json:"eds_cluster_config" mapstructure:"eds_cluster_config"`
-		LbStr                string           `yaml:"lb_policy" json:"lb_policy"`   // Lb the cluster select node used loadBalance policy
-		Lb                   LbPolicy         `yaml:",omitempty" json:",omitempty"` // Lb the cluster select node used loadBalance policy
-		HealthChecks         []HealthCheck    `yaml:"health_checks" json:"health_checks"`
-		Endpoints            []*Endpoint      `yaml:"endpoints" json:"endpoints"`
+		Name                 string        `yaml:"name" json:"name"`             // Name the cluster unique name
+		TypeStr              string        `yaml:"type" json:"type"`             // Type the cluster discovery type string value
+		LbStr                string        `yaml:"lb_policy" json:"lb_policy"`   // Lb the cluster select node used loadBalance policy
+		Lb                   LbPolicy      `yaml:",omitempty" json:",omitempty"` // Lb the cluster select node used loadBalance policy
+		HealthChecks         []HealthCheck `yaml:"health_checks" json:"health_checks"`
+		Endpoints            []*Endpoint   `yaml:"endpoints" json:"endpoints"`
 		prePickEndpointIndex int
 	}
 
